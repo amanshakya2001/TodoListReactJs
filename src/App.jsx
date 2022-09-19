@@ -36,13 +36,14 @@ function App() {
         <div className="todoitems">
           <ul>
             <li className="todoitem">
+              <p>Sr no.</p>
               <p>Task</p>
               <p>Delete</p>
               <p>Work Done</p>
             </li>
             <hr />
             {tasks.map((task,index) => (
-              <Todoitems key={index} id={index} task={task} deleteitem = {deleteitem} />
+              <Todoitems key={index} id={index} task={task} deleteitem = {deleteitem} tasks={tasks} />
             ))}
           </ul>
         </div>

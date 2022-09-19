@@ -7,7 +7,8 @@ function App(props) {
   }
   return (
     <li className="todoitem">
-      <p style={{textDecoration:!line?'line-through':'none'}}>{props.task}</p>
+      <p style={{textDecoration:!line?'line-through':'none'}}>{props.id + 1}.</p>
+      <p style={{textDecoration:!line?'line-through':'none'}}> {props.task}</p>
       <button onClick={()=>{props.deleteitem(props.id)}}><i className="fa fa-times"></i></button>
       <button onClick={cutit}><i className="fa fa-check"></i></button>
     </li>
