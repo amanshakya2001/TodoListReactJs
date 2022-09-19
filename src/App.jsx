@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Todoitems from "./Todoitems";
+import $ from 'jquery';
 function App() {
   const [tasks,setTasks] = useState([]);
   const [newtask,setNewtask] = useState("");
@@ -7,8 +8,18 @@ function App() {
     setNewtask(event.target.value);
   }
   const additems = (event) =>{
-    setTasks([...tasks,newtask]);
-    setNewtask("");
+    if(newtask !== ""){
+      setTasks([...tasks,newtask]);
+      setNewtask("");
+    }
+    else{
+      $(".btn").attr("disabled","disabled");
+      console.log($(".form").after(`<div style="width:100%;text-align:center;"><small style="color:red">Task Empty</small></div>`));
+      setTimeout(()=>{
+        $("small").remove();
+        $(".btn").removeAttr("disabled");
+      },1000)
+    }
   }
   const deleteitem = (id)=>{
     console.log("deleted");
